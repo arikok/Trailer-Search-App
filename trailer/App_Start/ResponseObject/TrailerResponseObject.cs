@@ -10,5 +10,8 @@ namespace trailer.Common
         public bool hasError { get; set; }
         public string message { get; set; }
         public Object dataObject { get; set; }
+
+
+
     }
 }
