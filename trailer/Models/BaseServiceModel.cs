@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace trailer.Models
 {
-    public class BaseServiceModel
+    public abstract class BaseServiceModel
     {
         public bool hasError { get; set; }
     }
