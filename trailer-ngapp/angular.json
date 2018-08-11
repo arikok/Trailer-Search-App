@@ -3,11 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-ngrx-material-starter": {
+    "trailer": {
       "root": "",
       "sourceRoot": "/src",
       "projectType": "application",
-      "prefix": "anms",
+      "prefix": "app",
       "schematics": {},
       "architect": {
         "build": {
@@ -90,18 +90,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-ngrx-material-starter:build"
+            "browserTarget": "trailer:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-ngrx-material-starter:build:production"
+              "browserTarget": "trailer:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-ngrx-material-starter:build"
+            "browserTarget": "trailer:build"
           }
         },
         "test": {
@@ -154,7 +154,7 @@
         }
       }
     },
-    "angular-ngrx-material-starter-e2e": {
+    "trailer-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -162,7 +162,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-ngrx-material-starter:serve"
+            "devServerTarget": "trailer:serve"
           }
         },
         "lint": {
@@ -177,5 +177,5 @@
       }
     }
   },
-  "defaultProject": "angular-ngrx-material-starter"
+  "defaultProject": "trailer"
 }

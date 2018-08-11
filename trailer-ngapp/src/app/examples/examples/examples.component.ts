@@ -9,7 +9,7 @@ import { routeAnimations, TitleService } from '@app/core';
 import { selectorSettings, SettingsState } from '@app/settings';
 
 @Component({
-  selector: 'anms-examples',
+  selector: 'app-examples',
   templateUrl: './examples.component.html',
   styleUrls: ['./examples.component.scss'],
   animations: [routeAnimations]
@@ -18,10 +18,10 @@ export class ExamplesComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
 
   examples = [
-    { link: 'todos', label: 'anms.examples.menu.todos' },
-    { link: 'stock-market', label: 'anms.examples.menu.stocks' },
-    { link: 'theming', label: 'anms.examples.menu.theming' },
-    { link: 'authenticated', label: 'anms.examples.menu.auth' }
+    { link: 'todos', label: 'app.examples.menu.todos' },
+    { link: 'stock-market', label: 'app.examples.menu.stocks' },
+    { link: 'theming', label: 'app.examples.menu.theming' },
+    { link: 'authenticated', label: 'app.examples.menu.auth' }
   ];
 
   constructor(

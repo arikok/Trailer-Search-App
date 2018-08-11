@@ -22,23 +22,23 @@ const routes: Routes = [
       {
         path: 'todos',
         component: TodosComponent,
-        data: { title: 'anms.examples.menu.todos' }
+        data: { title: 'app.examples.menu.todos' }
       },
       {
         path: 'stock-market',
         component: StockMarketComponent,
-        data: { title: 'anms.examples.menu.stocks' }
+        data: { title: 'app.examples.menu.stocks' }
       },
       {
         path: 'theming',
         component: ParentComponent,
-        data: { title: 'anms.examples.menu.theming' }
+        data: { title: 'app.examples.menu.theming' }
       },
       {
         path: 'authenticated',
         component: AuthenticatedComponent,
         canActivate: [AuthGuardService],
-        data: { title: 'anms.examples.menu.auth' }
+        data: { title: 'app.examples.menu.auth' }
       }
     ]
   }

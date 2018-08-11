@@ -27,7 +27,7 @@ import {
 } from './settings';
 
 @Component({
-  selector: 'anms-root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [routeAnimations]
@@ -44,13 +44,13 @@ export class AppComponent implements OnInit, OnDestroy {
   logo = require('../assets/logo.png');
   languages = ['en', 'sk'];
   navigation = [
-    { link: 'about', label: 'anms.menu.about' },
-    { link: 'features', label: 'anms.menu.features' },
-    { link: 'examples', label: 'anms.menu.examples' }
+    { link: 'about', label: 'app.menu.about' },
+    { link: 'features', label: 'app.menu.features' },
+    { link: 'examples', label: 'app.menu.examples' }
   ];
   navigationSideMenu = [
     ...this.navigation,
-    { link: 'settings', label: 'anms.menu.settings' }
+    { link: 'settings', label: 'app.menu.settings' }
   ];
 
   settings: SettingsState;
