@@ -7,8 +7,8 @@ namespace trailer.Models
 {
     public class YoutubeAPIModel : BaseServiceModel
     {
-        public String Query { get; set; }
-        public String NextPageToken { get; set; }
+        public string Query { get; set; }
+        public string NextPageToken { get; set; }
         public bool HasNext { get; set; }
         public List<YoutubeAPIModelItem> Videos { get; set; }
     }

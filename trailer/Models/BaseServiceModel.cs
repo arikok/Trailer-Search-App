@@ -8,6 +8,6 @@ namespace trailer.Models
 {
     public abstract class BaseServiceModel
     {
-        public bool hasError { get; set; }
+
     }
 }

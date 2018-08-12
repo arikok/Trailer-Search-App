@@ -42,13 +42,12 @@ namespace trailer.App_Start.ExceptionHandling
             string stackTrace = ex.StackTrace;
             // add user details
             //Store error details to database and get a ID 
-            string errorId = "123";
 
             logger.Error(stackTrace);
 
             TrailerResponseObject errorResponse = new TrailerResponseObject();
             errorResponse.hasError = true;
-            errorResponse.message = "Error details can be found with Error Id : " + errorId;
+            errorResponse.message = "Error details can be found in logs";
 
             context.Response.StatusCode = (int)HttpStatusCode.OK;
             context.Response.ContentType = "application/json";

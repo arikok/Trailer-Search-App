@@ -203,15 +203,11 @@
     <Compile Include="App_Start\ResponseObject\TrailerResponseObject.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AbstractBaseApiController.cs" />
-    <Compile Include="Controllers\SamplesController.cs" />
-    <Compile Include="Controllers\YoutubeAPIController.cs" />
+    <Compile Include="Controllers\YoutubeController.cs" />
     <Compile Include="Models\BaseServiceModel.cs" />
-    <Compile Include="Models\SampleServiceModel.cs" />
     <Compile Include="Models\YoutubeAPIModelItem.cs" />
     <Compile Include="Models\YoutubeAPIModel.cs" />
     <Compile Include="ServicesImpl\YoutubeAPIServiceImpl.cs" />
-    <Compile Include="Services\SampleService.cs" />
-    <Compile Include="ServicesImpl\SampleServiceImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\YoutubeAPIService.cs" />
     <Compile Include="Utils\JsonUtils.cs" />
@@ -231,7 +227,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\YoutubeAPI\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="nlog.config" />

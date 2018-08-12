@@ -11,6 +11,5 @@ namespace trailer.Services
     {
         YoutubeAPIModel SearchQuery(string Query, string NextPageKey);
         YoutubeAPIModel HomePageVideos(string NextPageKey);
-
     }
 }

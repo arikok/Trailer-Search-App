@@ -16,7 +16,7 @@ namespace trailer.ServicesImpl
 {
     public class YoutubeAPIServiceImpl : YoutubeAPIService
     {
-        public YoutubeAPIModel SearchQuery(string Query, string NextPageKey)
+        public YoutubeAPIModel SearchQuery(string Query, string NextPageToken)
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
@@ -27,11 +27,17 @@ namespace trailer.ServicesImpl
             var searchListRequest = youtubeService.Search.List("snippet");
             searchListRequest.Q = Query;
             searchListRequest.MaxResults = 24;
+            searchListRequest.Type = "video";
+            if(NextPageToken!= null && !NextPageToken.Equals(""))
+            {
+                searchListRequest.PageToken = NextPageToken;
+            }
 
             var searchListResponse = searchListRequest.Execute();
 
             YoutubeAPIModel results = new YoutubeAPIModel();
             results.Query = Query;
+            results.NextPageToken = searchListResponse.NextPageToken;
 
             List<YoutubeAPIModelItem> videos = new List<YoutubeAPIModelItem>();
             
@@ -51,12 +57,15 @@ namespace trailer.ServicesImpl
                 }
             }
 
+            results.Videos = videos;
+
             return results;
 
         }
-        public YoutubeAPIModel HomePageVideos(string NextPageKey)
+
+        public YoutubeAPIModel HomePageVideos(string NextPageToken)
         {
-            return null;
+            return SearchQuery("trailer", NextPageToken);
         }
     }
 }

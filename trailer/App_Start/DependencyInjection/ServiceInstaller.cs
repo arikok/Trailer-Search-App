@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http.Controllers;
 using trailer.Services;
-
+using trailer.ServicesImpl;
 
 namespace trailer.App_Start.DependencyInjection
 {
@@ -20,8 +20,8 @@ namespace trailer.App_Start.DependencyInjection
                             .LifestylePerWebRequest());
 
             container.Register(
-                Component.For<SampleService>().ImplementedBy<SampleServiceImpl>());
-            
+                Component.For<YoutubeAPIService>().ImplementedBy<YoutubeAPIServiceImpl>());
+
         }
     }
 }
