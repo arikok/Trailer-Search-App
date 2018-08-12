@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SettingsComponent } from './settings';
 
+import { StockMarketComponent } from './home/home.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -10,10 +12,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'home',
+    component: HomeComponent,
+    data: { title: 'app.menu.about' }
+  },
+  {
     path: 'settings',
     component: SettingsComponent,
     data: { title: 'app.menu.settings' }
   },
+
   {
     path: 'examples',
     loadChildren: 'app/examples/examples.module#ExamplesModule'
