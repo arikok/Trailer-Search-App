@@ -17,7 +17,7 @@ namespace trailer.ServicesImpl
     public class YoutubeAPIServiceImpl : YoutubeAPIService
     {
 
-        private YoutubeAPIModel SearchCore(string Query, string RelatedVideoID,string NextPageToken)
+        private YoutubeAPIModel SearchCore(string Query, string RelatedToVideoId,string NextPageToken)
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
@@ -39,9 +39,9 @@ namespace trailer.ServicesImpl
                 searchListRequest.PageToken = NextPageToken;
             }
 
-            if (RelatedVideoID != null && !RelatedVideoID.Equals(""))
+            if (RelatedToVideoId != null && !RelatedToVideoId.Equals(""))
             {
-                searchListRequest.RelatedToVideoId = RelatedVideoID;
+                searchListRequest.RelatedToVideoId = RelatedToVideoId;
             }
             
             var searchListResponse = searchListRequest.Execute();

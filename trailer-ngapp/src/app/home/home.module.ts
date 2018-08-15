@@ -12,8 +12,12 @@ import { IndexComponent } from './index/index.component';
 import { indexReducer } from './index/index.reducer';
 import { IndexEffects } from './index/index.effects';
 import { IndexService } from './index/index.service';
+
+import { TrailerComponent } from './trailer/trailer.component';
+
 import { HttpClient } from '@angular/common/http';
 import { environment } from '@env/environment';
+
 
 @NgModule({
   imports: [
@@ -34,7 +38,8 @@ import { environment } from '@env/environment';
   ],
   declarations: [
     HomeComponent,
-    IndexComponent    
+    IndexComponent,
+    TrailerComponent
   ],
   providers: [IndexService]
 })

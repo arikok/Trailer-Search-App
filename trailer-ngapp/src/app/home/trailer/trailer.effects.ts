@@ -24,7 +24,7 @@ import { IndexService } from './index.service';
 
 @Injectable()
 export class IndexEffects {
-  constructor(
+  /*constructor(
     private actions$: Actions<Action>,
     private localStorageService: LocalStorageService,
     private service: IndexService
@@ -52,5 +52,5 @@ export class IndexEffects {
           )
       )
     );
-  }
+  }*/
 }

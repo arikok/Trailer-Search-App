@@ -3,19 +3,19 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { CoreModule } from '@app/core';
 
-import { IndexService } from './index.service';
+import { VideoService } from './video.service';
 
-describe('IndexService', () => {
+describe('VideoService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, CoreModule],
-      providers: [IndexService]
+      providers: [VideoService]
     });
   });
 
   it(
     'should be created',
-    inject([IndexService], (service: IndexService) => {
+    inject([VideoService], (service: VideoService) => {
       expect(service).toBeTruthy();
     })
   );
