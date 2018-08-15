@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="offset-md-2 col-md-8 entry">
+      <app-big-input [placeholder]="'app.home.search.input.placeholder' | translate"
+                     (keyup)="onSearchChange($event.target.value)">
+        <app-big-input-action fontSet="fas" fontIcon="fa-search" color="accent"
+                              [matTooltip]="'app.home.search.input.action.search.tooltip' | translate"
+                              matTooltipPosition="below">
+        </app-big-input-action>
+      </app-big-input>
+    </div>
+  </div>
+
+  <div class="row">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <div class="offset-md-2 col-md-8 entry" *ngIf="result.result && result.result.trailers">
+      <mat-card *ngFor="let trailer of result.result.trailers">
+        <span>
+          {{trailer.Title}}
+        </span>
+      </mat-card>
+
+    </div>
+   
+
+  </div>
+
+</div>

@@ -4,35 +4,35 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import {
-  ActionStockMarketRetrieve,
-  selectorStocks
-} from './stock-market.reducer';
+  ActionIndexRetrieve,
+  selectorTrailerResults
+} from './index.reducer';
 
 @Component({
-  selector: 'app-stock-market',
-  templateUrl: './stock-market.component.html',
-  styleUrls: ['./stock-market.component.scss']
+  selector: 'app-index',
+  templateUrl: './index.component.html',
+  styleUrls: ['./index.component.scss']
 })
-export class StockMarketComponent implements OnInit, OnDestroy {
+export class IndexComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
 
   initialized;
-  stocks;
+  result;
 
   constructor(public store: Store<any>) {}
 
   ngOnInit() {
     this.initialized = false;
     this.store
-      .select(selectorStocks)
+      .select(selectorTrailerResults)
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((stocks: any) => {
-        this.stocks = stocks;
+      .subscribe((result: any) => {
+        this.result = result;
 
         if (!this.initialized) {
           this.initialized = true;
           this.store.dispatch(
-            new ActionStockMarketRetrieve({ symbol: stocks.symbol })
+            new ActionIndexRetrieve({ query: result.query })
           );
         }
       });
@@ -43,7 +43,7 @@ export class StockMarketComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  onSymbolChange(symbol: string) {
-    this.store.dispatch(new ActionStockMarketRetrieve({ symbol }));
+  onSearchChange(query: string) {
+    this.store.dispatch(new ActionIndexRetrieve({ query }));
   }
 }

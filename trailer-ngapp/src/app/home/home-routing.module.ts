@@ -3,43 +3,25 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuardService } from '@app/core';
 
-import { ExamplesComponent } from './examples/examples.component';
-import { TodosComponent } from './todos/todos.component';
-import { StockMarketComponent } from './stock-market/stock-market.component';
-import { ParentComponent } from './theming/parent/parent.component';
-import { AuthenticatedComponent } from './authenticated/authenticated.component';
+import { HomeComponent } from './home/home.component';
+import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ExamplesComponent,
+    component: HomeComponent,
     children: [
       {
         path: '',
-        redirectTo: 'todos',
+        redirectTo: 'index',
         pathMatch: 'full'
       },
       {
-        path: 'todos',
-        component: TodosComponent,
-        data: { title: 'app.examples.menu.todos' }
-      },
-      {
-        path: 'stock-market',
-        component: StockMarketComponent,
+        path: 'index',
+        component: IndexComponent,
         data: { title: 'app.examples.menu.stocks' }
       },
-      {
-        path: 'theming',
-        component: ParentComponent,
-        data: { title: 'app.examples.menu.theming' }
-      },
-      {
-        path: 'authenticated',
-        component: AuthenticatedComponent,
-        canActivate: [AuthGuardService],
-        data: { title: 'app.examples.menu.auth' }
-      }
+      
     ]
   }
 ];
@@ -48,4 +30,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ExamplesRoutingModule {}
+export class HomeRoutingModule {}

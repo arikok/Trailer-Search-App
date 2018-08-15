@@ -1,0 +1,66 @@
+{
+  "app.examples.menu.todos": "Zoznam úloh",
+  "app.examples.menu.stocks": "Akcie",
+  "app.examples.menu.theming": "Témy",
+  "app.examples.menu.auth": "Pre prihlásených",
+  "app.examples.todos.input": "Plánujem urobiť...",
+  "app.examples.todos.tooltip.add": "Pridaj novú úlohu",
+  "app.examples.todos.tooltip.remove": "Odstráň dokončené úlohy",
+  "app.examples.todos.list": "List úloh",
+  "app.examples.todos.example": "Príklad listu úloh",
+  "app.examples.todos.text1": "Toto je klasický príklad",
+  "app.examples.todos.text2": "listu úloh",
+  "app.examples.todos.text3":
+    "s podporou pre pridávanie, dokončovanie, odstraňovanie a filtrovanie úloh.",
+  "app.examples.todos.text4":
+    "Spravovanie stavu aplikácie je implementované s pomocou",
+  "app.examples.todos.text5":
+    "modulu a s podporou pre lenivo načítané reducery (toto je lenivo načítaný modul).",
+  "app.examples.todos.text6":
+    "Úlohy sú uložené aj v lokálnom úložisku prehliadača čiže Vaše úlohy budú dostupné aj pri ďalších návštevách aplikácie pri použití toho istého prehliadača.",
+  "app.examples.todos.filter.all": "Všetky",
+  "app.examples.todos.filter.done": "Hotové",
+  "app.examples.todos.filter.active": "Aktívne",
+  "app.examples.todos.filter.description": "Zobrazené",
+  "app.examples.todos.filter.items": "úlohy",
+  "app.examples.stocks.title": "Akciový trh",
+  "app.examples.stocks.symbol": "Symbol akcie",
+  "app.examples.stocks.description":
+    "Prosím, poskytnite existujúci symbol akciového trhu ako:",
+  "app.examples.stocks.text1":
+    "Príklad akciového trhu ukazuje ako implementovať",
+  "app.examples.stocks.text2": "volania pomocou",
+  "app.examples.stocks.text3": "modulu.",
+  "app.examples.stocks.text4":
+    "Zmena symbolu v zadávacom poli bude viesť k vytvoreniu akcie, ktorá zmení stav aplikácie, nastaví nahrávanie (v reduceri) a spustí efekt na načítanie ceny zvolených akcií.",
+  "app.examples.stocks.text5":
+    "Každé nasledujúce volanie zruší to predošlé na zlepšenie výkonu pomocou",
+  "app.examples.stocks.text6":
+    "'Úspech' alebo 'chyba' akcie sú vytvorené na konci každého volania. Načítavací indikátor je odstránený a aplikácia zobrazí informácie o cene akcií alebo chybovú správu v prípade zlyhania volania.",
+  "app.examples.stocks.error1": "Akcie so symbolom",
+  "app.examples.stocks.error2": "neboli nájdené",
+  "app.examples.theming.parent.title":
+    "Určovanie rozsahu tém s vnorenými komponentami",
+  "app.examples.theming.parent.description": "rodič funguje!",
+  "app.examples.theming.parent.text1":
+    "Témy niesú importované pomocou komponentovej",
+  "app.examples.theming.parent.text2": "vlastnosti definovanej v",
+  "app.examples.theming.parent.text3": "dekorátore, ale v hlavnom",
+  "app.examples.theming.parent.text4": "súbore. Toto je dôvod prečo témy ",
+  "app.examples.theming.parent.text5": "NIE SÚ",
+  "app.examples.theming.parent.text6": "obmedzené len pre šablónu komponentu.",
+  "app.examples.theming.parent.text7": "Toto je dôvod prečo musíme použiť",
+  "app.examples.theming.parent.text8": "špecifický",
+  "app.examples.theming.parent.text9":
+    "selektor, aby sme predišli situácii, keď rodičové štýly presiaknu do dieťaťa. Toto sa dá dosiahnuť použitím",
+  "app.examples.theming.parent.text10":
+    "v css na zvýšenie ich špecifity. Napríklad, v témovom súbore tohto komponentu:",
+  "app.examples.theming.child.title": "h1 dieťaťa",
+  "app.examples.theming.child.subtitle": "by malo byť bez štýlov",
+  "app.examples.theming.child.description": "dieťa funguje!",
+  "app.examples.auth.title": "Komponent pre prihlásených používateľov",
+  "app.examples.auth.description1":
+    "Tento komponent je dostupný len pre prihlásených používateľov",
+  "app.examples.auth.description2":
+    "Odhlásenie sa zo systému spôsobí presmerovanie použávateľa na domovskú stránku"
+}

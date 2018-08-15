@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.ExceptionHandling;
 using Microsoft.Owin;
+using Microsoft.Owin.Cors;
 using Owin;
 using trailer.App_Start.DependencyInjection;
 using trailer.App_Start.ExceptionHandling;
@@ -18,6 +20,8 @@ namespace trailer.App_Start
         {
             var httpConfig = new HttpConfiguration();
 
+            httpConfig.EnableCors();
+
             httpConfig.MapHttpAttributeRoutes();
 
             httpConfig.Filters.Add(new ResponseActionFilter());
@@ -28,7 +32,11 @@ namespace trailer.App_Start
 
             app.Use<OwinExceptionHandlerMiddleware>();
 
+            app.UseCors(CorsOptions.AllowAll);
+
             app.UseWebApi(httpConfig);
+
+            
         }
     }
 }

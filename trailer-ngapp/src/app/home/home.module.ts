@@ -6,28 +6,21 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { SharedModule } from '@app/shared';
 
-import { ExamplesRoutingModule } from './examples-routing.module';
-import { ExamplesComponent } from './examples/examples.component';
-import { TodosComponent } from './todos/todos.component';
-import { todosReducer } from './todos/todos.reducer';
-import { TodosEffects } from './todos/todos.effects';
-import { StockMarketComponent } from './stock-market/stock-market.component';
-import { stockMarketReducer } from './stock-market/stock-market.reducer';
-import { StockMarketEffects } from './stock-market/stock-market.effects';
-import { StockMarketService } from './stock-market/stock-market.service';
-import { ParentComponent } from './theming/parent/parent.component';
-import { ChildComponent } from './theming/child/child.component';
-import { AuthenticatedComponent } from './authenticated/authenticated.component';
+import { HomeRoutingModule } from './home-routing.module';
+import { HomeComponent } from './home/home.component';
+import { IndexComponent } from './index/index.component';
+import { indexReducer } from './index/index.reducer';
+import { IndexEffects } from './index/index.effects';
+import { IndexService } from './index/index.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '@env/environment';
 
 @NgModule({
   imports: [
     SharedModule,
-    ExamplesRoutingModule,
-    StoreModule.forFeature('examples', {
-      todos: todosReducer,
-      stocks: stockMarketReducer
+    HomeRoutingModule,
+    StoreModule.forFeature('home', {
+      result: indexReducer
     }),
     TranslateModule.forChild({
       loader: {
@@ -37,26 +30,22 @@ import { environment } from '@env/environment';
       },
       isolate: true
     }),
-    EffectsModule.forFeature([TodosEffects, StockMarketEffects])
+    EffectsModule.forFeature([IndexEffects])
   ],
   declarations: [
-    ExamplesComponent,
-    TodosComponent,
-    StockMarketComponent,
-    ParentComponent,
-    ChildComponent,
-    AuthenticatedComponent
+    HomeComponent,
+    IndexComponent    
   ],
-  providers: [StockMarketService]
+  providers: [IndexService]
 })
-export class ExamplesModule {
+export class HomeModule {
   constructor() {}
 }
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(
     http,
-    `${environment.i18nPrefix}/assets/i18n/examples/`,
+    `${environment.i18nPrefix}/assets/i18n/home/`,
     '.json'
   );
 }

@@ -3,23 +3,23 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CoreModule } from '@app/core';
 import { TestingModule } from '@testing/utils';
 
-import { ExamplesComponent } from './examples.component';
+import { HomeComponent } from './home.component';
 
-describe('ExamplesComponent', () => {
-  let component: ExamplesComponent;
-  let fixture: ComponentFixture<ExamplesComponent>;
+describe('HomeComponent', () => {
+  let component: HomeComponent;
+  let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
         imports: [TestingModule, CoreModule],
-        declarations: [ExamplesComponent]
+        declarations: [HomeComponent]
       }).compileComponents();
     })
   );
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExamplesComponent);
+    fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

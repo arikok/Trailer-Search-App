@@ -9,27 +9,20 @@ import { routeAnimations, TitleService } from '@app/core';
 import { selectorSettings, SettingsState } from '@app/settings';
 
 @Component({
-  selector: 'app-examples',
-  templateUrl: './examples.component.html',
-  styleUrls: ['./examples.component.scss'],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
   animations: [routeAnimations]
 })
-export class ExamplesComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
-
-  examples = [
-    { link: 'todos', label: 'app.examples.menu.todos' },
-    { link: 'stock-market', label: 'app.examples.menu.stocks' },
-    { link: 'theming', label: 'app.examples.menu.theming' },
-    { link: 'authenticated', label: 'app.examples.menu.auth' }
-  ];
-
+  
   constructor(
     private store: Store<any>,
     private router: Router,
     private titleService: TitleService,
     private translate: TranslateService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.translate.setDefaultLang('en');
