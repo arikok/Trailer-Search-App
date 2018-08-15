@@ -16,7 +16,8 @@ namespace trailer.ServicesImpl
 {
     public class YoutubeAPIServiceImpl : YoutubeAPIService
     {
-        public YoutubeAPIModel SearchQuery(string Query, string NextPageToken)
+
+        private YoutubeAPIModel SearchCore(string Query, string RelatedVideoID,string NextPageToken)
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
@@ -25,14 +26,24 @@ namespace trailer.ServicesImpl
             });
 
             var searchListRequest = youtubeService.Search.List("snippet");
-            searchListRequest.Q = Query;
             searchListRequest.MaxResults = 24;
             searchListRequest.Type = "video";
-            if(NextPageToken!= null && !NextPageToken.Equals(""))
+
+            if (Query != null && !Query.Equals(""))
+            {
+                searchListRequest.Q = Query;
+            }
+            
+            if (NextPageToken != null && !NextPageToken.Equals(""))
             {
                 searchListRequest.PageToken = NextPageToken;
             }
 
+            if (RelatedVideoID != null && !RelatedVideoID.Equals(""))
+            {
+                searchListRequest.RelatedToVideoId = RelatedVideoID;
+            }
+            
             var searchListResponse = searchListRequest.Execute();
 
             YoutubeAPIModel results = new YoutubeAPIModel();
@@ -40,7 +51,7 @@ namespace trailer.ServicesImpl
             results.NextPageToken = searchListResponse.NextPageToken;
 
             List<YoutubeAPIModelItem> videos = new List<YoutubeAPIModelItem>();
-            
+
             foreach (var searchResult in searchListResponse.Items)
             {
                 switch (searchResult.Id.Kind)
@@ -48,24 +59,33 @@ namespace trailer.ServicesImpl
                     case "youtube#video":
                         YoutubeAPIModelItem item = new YoutubeAPIModelItem();
                         item.Title = searchResult.Snippet.Title;
-                        item.YoutubeVideoId  = searchResult.Id.VideoId;
+                        item.YoutubeVideoId = searchResult.Id.VideoId;
                         item.ChannelTitle = searchResult.Snippet.ChannelTitle;
                         item.ChannelId = searchResult.Snippet.ChannelId;
                         item.ThumbnailUrl = searchResult.Snippet.Thumbnails.High.Url;
                         videos.Add(item);
-                        break;                    
+                        break;
                 }
             }
 
             results.Videos = videos;
 
             return results;
+        }
 
+        public YoutubeAPIModel SearchQuery(string Query, string NextPageToken)
+        {
+            return SearchCore(Query, null, NextPageToken);
         }
 
         public YoutubeAPIModel HomePageVideos(string NextPageToken)
         {
             return SearchQuery("trailer", NextPageToken);
+        }
+
+        public YoutubeAPIModel RelatedVideos(string RelatedToVideoId, string NextPageKey)
+        {
+            return SearchCore(null, RelatedToVideoId, NextPageKey);
         }
     }
 }

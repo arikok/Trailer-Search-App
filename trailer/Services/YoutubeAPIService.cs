@@ -10,6 +10,7 @@ namespace trailer.Services
     public interface YoutubeAPIService 
     {
         YoutubeAPIModel SearchQuery(string Query, string NextPageKey);
+        YoutubeAPIModel RelatedVideos(string RelatedToVideoId, string NextPageKey)
         YoutubeAPIModel HomePageVideos(string NextPageKey);
     }
 }

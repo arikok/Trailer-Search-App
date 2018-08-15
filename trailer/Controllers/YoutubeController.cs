@@ -24,7 +24,7 @@ namespace trailer.Controllers
         
         [Route("youtube/search")]
         [HttpPost]
-        public YoutubeAPIModel Search(YoutubeAPIModel input)
+        public YoutubeAPIModel Search([FromBody] YoutubeAPIModel input)
         {
             string query = input.Query;
             if (!query.Contains("trailer"))
