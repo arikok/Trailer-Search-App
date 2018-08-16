@@ -26,7 +26,7 @@ namespace trailer.ServicesImpl
             });
 
             var searchListRequest = youtubeService.Search.List("snippet");
-            searchListRequest.MaxResults = 24;
+            searchListRequest.MaxResults = 32;
             searchListRequest.Type = "video";
 
             if (Query != null && !Query.Equals(""))

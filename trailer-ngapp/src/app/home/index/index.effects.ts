@@ -43,9 +43,9 @@ export class IndexEffects {
       debounceTime(500),
       switchMap((action: ActionIndexRetrieve) =>
         this.service
-          .retrieveResult(action.payload.query)
+          .retrieveResult(action.payload.query, action.payload.nextPageToken)
           .pipe(
-          map(result => new ActionIndexRetrieveSuccess({ result })),
+          map(result => new ActionIndexRetrieveSuccess({ result : result, nextPageToken : action.payload.nextPageToken })),
             catchError(error =>
               of(new ActionIndexRetrieveError({ error }))
             )

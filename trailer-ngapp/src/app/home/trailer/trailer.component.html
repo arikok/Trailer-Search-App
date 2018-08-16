@@ -3,7 +3,9 @@
     <mat-spinner *ngIf="loading"></mat-spinner>
     <div class="col-md-8">    
       <div class="card">
-        <youtube-player [videoId]="YoutubeVideoId" [height]="450" [width]="800"></youtube-player>
+        <youtube-player [videoId]="YoutubeVideoId" [height]="450" [width]="800"
+                        (ready)="savePlayer($event)"
+                        ></youtube-player>
         <div class="card-body">
           <h5 class="card-header">The Angel Original Netflix</h5>
           

@@ -12,13 +12,13 @@ export enum IndexActionTypes {
 export class ActionIndexRetrieve implements Action {
   readonly type = IndexActionTypes.RETRIEVE;
 
-  constructor(readonly payload: { query: string }) {}
+  constructor(readonly payload: { query: string,nextPageToken : string }) {}
 }
 
 export class ActionIndexRetrieveSuccess implements Action {
   readonly type = IndexActionTypes.RETRIEVE_SUCCESS;
 
-  constructor(readonly payload: { result: TrailerSearchResult }) {}
+  constructor(readonly payload: { result: TrailerSearchResult, nextPageToken : string }) {}
 }
 
 export class ActionIndexRetrieveError implements Action {
@@ -34,7 +34,8 @@ export type IndexActions =
 
 export const initialState: IndexState = {
   query: '',
-  loading: false
+  loading: false,
+  trailers : null
 };
 
 export const selectorTrailerResults = state => state.home.result;
@@ -43,20 +44,28 @@ export function indexReducer(
   state: IndexState = initialState,
   action: IndexActions
 ): IndexState {
+  debugger;
   switch (action.type) {
     case IndexActionTypes.RETRIEVE:
       return {
         ...state,
         loading: true,
-        result: null,
         error: null,
         query: action.payload.query
       };
 
     case IndexActionTypes.RETRIEVE_SUCCESS:
+      debugger;
+      let trailers = [];
+      if (action.payload.nextPageToken == '') {
+        trailers = action.payload.result.trailers;
+      } else {
+        trailers = state.trailers.concat(action.payload.result.trailers);
+      }
       return {
         ...state,
         loading: false,
+        trailers: trailers,
         result: action.payload.result,
         error: null
       };
@@ -78,7 +87,7 @@ export interface TrailerSearchResult {
   query: string;
   nextPageToken: string;
   hasNext: string;
-  trailers: TrailerSearchResultItem[];
+  trailers: TrailerSearchResultItem[]
 }
 
 export interface TrailerSearchResultItem {
@@ -93,5 +102,6 @@ export interface IndexState {
   query: string;
   loading: boolean;
   result?: TrailerSearchResult;
+  trailers?: TrailerSearchResultItem[];
   error?: HttpErrorResponse;
 }

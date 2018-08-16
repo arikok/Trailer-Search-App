@@ -11,10 +11,11 @@ const PROXY_URL = 'http://localhost:49238/youtube/search';
 export class IndexService {
   constructor(private httpClient: HttpClient) {}
 
-  retrieveResult(query: string): Observable<TrailerSearchResult> {
+  retrieveResult(query: string,nextPageToken : string): Observable<TrailerSearchResult> {
     return this.httpClient
       .post(PROXY_URL, {
-        "Query":  query
+        "Query": query,
+        "NextPageToken": nextPageToken
       })
       .pipe(
       map((res: any) => ({

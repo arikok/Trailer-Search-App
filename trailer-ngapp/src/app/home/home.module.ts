@@ -16,6 +16,8 @@ import { IndexService } from './index/index.service';
 import { TrailerComponent } from './trailer/trailer.component';
 
 import { YoutubePlayerModule } from 'ngx-youtube-player';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 
 import { HttpClient } from '@angular/common/http';
 import { environment } from '@env/environment';
@@ -37,7 +39,8 @@ import { environment } from '@env/environment';
       isolate: true
     }),
     EffectsModule.forFeature([IndexEffects]),
-    YoutubePlayerModule
+    YoutubePlayerModule,
+    InfiniteScrollModule
   ],
   declarations: [
     HomeComponent,

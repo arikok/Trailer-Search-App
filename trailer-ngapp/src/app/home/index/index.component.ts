@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener  } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -32,7 +32,7 @@ export class IndexComponent implements OnInit, OnDestroy {
         if (!this.initialized) {
           this.initialized = true;
           this.store.dispatch(
-            new ActionIndexRetrieve({ query: result.query })
+            new ActionIndexRetrieve({ query: result.query, nextPageToken : '' })
           );
         }
       });
@@ -44,8 +44,13 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   onSearchChange(query: string) {
-    if (query) {
-      this.store.dispatch(new ActionIndexRetrieve({ query }));
+    if (!this.result.loading && query && query.length > 0) {
+      this.store.dispatch(new ActionIndexRetrieve({ query: query, nextPageToken : '' }));
     }
   }
+
+  loadMore(ev) {
+    this.store.dispatch(new ActionIndexRetrieve({ query: this.result.query, nextPageToken: this.result.nextPageToken }));
+  }
+
 }

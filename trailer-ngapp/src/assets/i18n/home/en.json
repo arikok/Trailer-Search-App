@@ -1,4 +1,5 @@
 {
   "app.home.search.input.placeholder": "Film, genre, artist...",
-  "app.home.search.input.action.search.tooltip": "Search"  
+  "app.home.search.input.action.search.tooltip": "Search",
+  "app.home.index.loadMore" :  "Load More"
 }
