@@ -8,6 +8,6 @@ namespace trailer.Models
 {
     public abstract class BaseServiceModel
     {
-
+        public abstract string GetCacheKey();
     }
 }

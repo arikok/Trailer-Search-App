@@ -28,24 +28,18 @@ namespace trailer.Controllers
         {
             if (input == null || input.Query == null)
             {
-                return Home(null);
+                input = new YoutubeAPIModel();
+                input.Query = "trailer";
             }
-            string query = input.Query;
-            if (!query.Contains("trailer"))
+            
+            if (!input.Query.Contains("trailer"))
             {
-                query += " trailer";
+                input.Query += " trailer";
             }
-            YoutubeAPIModel response = youtubeAPIService.SearchQuery(query, input.NextPageToken);
+            YoutubeAPIModel response = youtubeAPIService.SearchQuery(input);
             return response;
         }
-
-        [Route("youtube/homepage")]
-        [HttpPost]
-        public YoutubeAPIModel Home(YoutubeAPIModel input)
-        {
-            YoutubeAPIModel response = youtubeAPIService.HomePageVideos(input==null ? null : input.NextPageToken);
-            return response;
-        }
+        
 
     }
 }

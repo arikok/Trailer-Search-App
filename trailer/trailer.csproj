@@ -92,6 +92,7 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
@@ -202,6 +203,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\Cache\CacheResultAttribute.cs" />
+    <Compile Include="App_Start\Cache\CacheResultInterceptor.cs" />
+    <Compile Include="App_Start\Cache\ICacheProvider.cs" />
+    <Compile Include="App_Start\Cache\MemoryCacheProvider.cs" />
     <Compile Include="App_Start\DependencyInjection\CastleWindsorHelper.cs" />
     <Compile Include="App_Start\DependencyInjection\ServiceInstaller.cs" />
     <Compile Include="App_Start\DependencyInjection\WindsorDependencyScope.cs" />

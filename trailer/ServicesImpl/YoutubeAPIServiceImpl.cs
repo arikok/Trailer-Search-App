@@ -11,12 +11,13 @@ using Google.Apis.Upload;
 using Google.Apis.Util;
 using Google.Apis.YouTube.v3;
 using Google.Apis.YouTube.v3.Data;
+using trailer.App_Start.Cache;
 
 namespace trailer.ServicesImpl
 {
     public class YoutubeAPIServiceImpl : YoutubeAPIService
     {
-
+        
         private YoutubeAPIModel SearchCore(string Query, string RelatedToVideoId,string NextPageToken)
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
@@ -73,19 +74,17 @@ namespace trailer.ServicesImpl
             return results;
         }
 
-        public YoutubeAPIModel SearchQuery(string Query, string NextPageToken)
-        {
-            return SearchCore(Query, null, NextPageToken);
+
+        [CacheResult(Duration = 100000)]
+        public YoutubeAPIModel SearchQuery(YoutubeAPIModel input)
+        {            
+            return SearchCore(input.Query, null, input.NextPageToken);
         }
 
-        public YoutubeAPIModel HomePageVideos(string NextPageToken)
+        [CacheResult(Duration = 100000)]
+        public YoutubeAPIModel RelatedVideos(YoutubeAPIModel input)
         {
-            return SearchQuery("trailer", NextPageToken);
-        }
-
-        public YoutubeAPIModel RelatedVideos(string RelatedToVideoId, string NextPageKey)
-        {
-            return SearchCore(null, RelatedToVideoId, NextPageKey);
+            return SearchCore(null, input.RelatedToVideoId, input.NextPageToken);
         }
     }
 }
