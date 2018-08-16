@@ -16,7 +16,7 @@ namespace trailer.Models
         public override string GetCacheKey()
         {
             string key = "";
-            key += "±" + Query != null ? Query : "";
+            key += "±" + (Query != null ? Query : "");
             key += "±" + RelatedToVideoId != null ? RelatedToVideoId : "";
             key += "±" + NextPageToken != null ? NextPageToken : "";
             return key;

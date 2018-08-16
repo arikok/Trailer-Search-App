@@ -44,7 +44,6 @@ export function indexReducer(
   state: IndexState = initialState,
   action: IndexActions
 ): IndexState {
-  debugger;
   switch (action.type) {
     case IndexActionTypes.RETRIEVE:
       return {
@@ -55,7 +54,6 @@ export function indexReducer(
       };
 
     case IndexActionTypes.RETRIEVE_SUCCESS:
-      debugger;
       let trailers = [];
       if (action.payload.nextPageToken == '') {
         trailers = action.payload.result.trailers;

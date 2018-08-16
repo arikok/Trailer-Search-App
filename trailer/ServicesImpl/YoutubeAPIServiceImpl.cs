@@ -12,6 +12,7 @@ using Google.Apis.Util;
 using Google.Apis.YouTube.v3;
 using Google.Apis.YouTube.v3.Data;
 using trailer.App_Start.Cache;
+using System.Web.Configuration;
 
 namespace trailer.ServicesImpl
 {
@@ -22,7 +23,7 @@ namespace trailer.ServicesImpl
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "AIzaSyCczMd56kQuJ6Bpj21DVAz14C2jUG8ZLfw",
+                ApiKey = WebConfigurationManager.AppSettings["YoutubeAPIKey"],
                 ApplicationName = "trailer"
             });
 

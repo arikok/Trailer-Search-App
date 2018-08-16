@@ -50,7 +50,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   loadMore(ev) {
-    this.store.dispatch(new ActionIndexRetrieve({ query: this.result.query, nextPageToken: this.result.nextPageToken }));
+    this.store.dispatch(new ActionIndexRetrieve({ query: this.result.query, nextPageToken: this.result.result.nextPageToken }));
   }
 
 }

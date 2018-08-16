@@ -22,8 +22,6 @@ namespace trailer.App_Start.DependencyInjection
                             .BasedOn<IHttpController>()
                             .LifestylePerWebRequest());
 
-            //Component.For<IInterceptor>().ImplementedBy<ExceptionLoggerInterceptor>().Named("exceptionLogger"),
-
             var cacheInterceptor = new[] { InterceptorReference.ForKey("CacheInterceptor") };
 
 

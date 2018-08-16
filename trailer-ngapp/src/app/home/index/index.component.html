@@ -2,7 +2,7 @@
   <div class="row mt20">
     <div class="offset-md-2 col-md-8 entry">
       <app-big-input [placeholder]="'app.home.search.input.placeholder' | translate"
-                     (keyup)="onSearchChange($event.target.value)">
+                     (change)="onSearchChange($event.target.value)">
         <app-big-input-action fontSet="fas" fontIcon="fa-search" color="accent"
                               [matTooltip]="'app.home.search.input.action.search.tooltip' | translate"
                               matTooltipPosition="below">
