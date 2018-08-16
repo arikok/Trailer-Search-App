@@ -17,7 +17,7 @@ import { TrailerComponent } from './trailer/trailer.component';
 
 import { YoutubePlayerModule } from 'ngx-youtube-player';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-
+import { ShareButtonsModule } from '@ngx-share/buttons';
 
 import { HttpClient } from '@angular/common/http';
 import { environment } from '@env/environment';
@@ -40,7 +40,8 @@ import { environment } from '@env/environment';
     }),
     EffectsModule.forFeature([IndexEffects]),
     YoutubePlayerModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    ShareButtonsModule.forRoot()
   ],
   declarations: [
     HomeComponent,

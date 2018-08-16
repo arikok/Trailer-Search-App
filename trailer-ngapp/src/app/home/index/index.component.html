@@ -18,7 +18,7 @@
   <div class="search-results">
     <div class="row mt20" *ngIf="!loading && result.result && result.trailers">
       <div class="col-md-3" *ngFor="let trailer of result.trailers">
-        <a [routerLink]="['/home/trailer',trailer.YoutubeVideoId]">
+        <a [routerLink]="['/home/trailer',trailer.YoutubeVideoId]" [queryParams]="{ Title : trailer.Title, ChannelTitle : trailer.ChannelTitle, Description : trailer.Description , ThumbnailUrl : trailer.ThumbnailUrl }">
           <mat-card class="home-trailer-card">
             <img mat-card-image src="{{trailer.ThumbnailUrl}}" alt="{{trailer.Title}}">
             <mat-card-content>

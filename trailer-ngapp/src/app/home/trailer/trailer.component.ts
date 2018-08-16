@@ -24,6 +24,8 @@ export class TrailerComponent implements OnInit, OnDestroy {
   YoutubeVideoId;
   Title;
   ChannelTitle;
+  Description;
+  ThumbnailUrl;
   player;
 
   constructor(public store: Store<any>, private route: ActivatedRoute) { }
@@ -68,17 +70,21 @@ export class TrailerComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.initialized = false;
     this.reframed = false;
-    console.log("init false");
     this.route.params.subscribe(params => {
-      console.log("paramss");
       this.init();
       this.YoutubeVideoId = params['YoutubeVideoId'];
-      console.log("YoutubeVideoId" + this.YoutubeVideoId);
-      
       this.initialized = true;
-      console.log("true");
-      
+    });
 
+    this.route.queryParams.subscribe(params => {
+      // Defaults to 0 if no query param provided.
+      if (params['Title']) {
+        this.Title = params['Title'];
+        this.ChannelTitle = params['ChannelTitle'];
+        this.Description = params['Description'];
+        this.ThumbnailUrl = params['ThumbnailUrl'];
+      }
+      
     });
 
     /*this.store

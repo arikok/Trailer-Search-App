@@ -94,6 +94,7 @@ export interface TrailerSearchResultItem {
   ChannelTitle: string;
   ChannelId: string;
   ThumbnailUrl: string;
+  Description: string;
 }
 
 export interface IndexState {

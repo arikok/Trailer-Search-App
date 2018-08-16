@@ -28,7 +28,7 @@ namespace trailer.ServicesImpl
             });
 
             var searchListRequest = youtubeService.Search.List("snippet");
-            searchListRequest.MaxResults = 32;
+            searchListRequest.MaxResults = 20;
             searchListRequest.Type = "video";
 
             if (Query != null && !Query.Equals(""))
@@ -65,6 +65,7 @@ namespace trailer.ServicesImpl
                         item.ChannelTitle = searchResult.Snippet.ChannelTitle;
                         item.ChannelId = searchResult.Snippet.ChannelId;
                         item.ThumbnailUrl = searchResult.Snippet.Thumbnails.High.Url;
+                        item.Description = searchResult.Snippet.Description;
                         videos.Add(item);
                         break;
                 }
@@ -74,8 +75,7 @@ namespace trailer.ServicesImpl
 
             return results;
         }
-
-
+        
         [CacheResult(Duration = 100000)]
         public YoutubeAPIModel SearchQuery(YoutubeAPIModel input)
         {            
@@ -87,5 +87,6 @@ namespace trailer.ServicesImpl
         {
             return SearchCore(null, input.RelatedToVideoId, input.NextPageToken);
         }
+        
     }
 }
