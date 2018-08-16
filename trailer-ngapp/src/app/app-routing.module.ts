@@ -19,10 +19,6 @@ const routes: Routes = [
     loadChildren: 'app/home/home.module#HomeModule'
   },
   {
-    path: 'examples',
-    loadChildren: 'app/examples/examples.module#ExamplesModule'
-  },
-  {
     path: '**',
     redirectTo: 'home'
   }

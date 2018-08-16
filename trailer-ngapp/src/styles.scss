@@ -24,22 +24,13 @@
 @import 'app/app.component.scss-theme';
 @import 'app/shared/big-input/big-input.component.scss-theme';
 @import 'app/static/about/about.component.scss-theme';
-@import 'app/examples/todos/todos.component.scss-theme';
-@import 'app/examples/stock-market/stock-market.component.scss-theme';
-@import 'app/examples/theming/parent/parent.component.scss-theme';
-@import 'app/examples/theming/child/child.component.scss-theme';
-@import 'app/examples/examples/examples.component.scss-theme';
+
 
 @mixin custom-components-theme($theme) {
   @include app-styles-reset-theme($theme);
   @include app-app-component-theme($theme);
   @include app-about-component-theme($theme);
-  @include app-big-input-component-theme($theme);
-  @include app-todos-component-theme($theme);
-  @include app-stock-market-component-theme($theme);
-  @include app-parent-component-theme($theme);
-  @include app-child-component-theme($theme);
-  @include app-examples-component-theme($theme);
+  @include app-big-input-component-theme($theme);  
 }
 
 .default-theme {

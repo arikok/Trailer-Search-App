@@ -1,0 +1,24 @@
+{
+  "app.title": "Trailer Zone",
+  "app.title.short": "TZone",
+  "app.menu.about": "Hakkında",
+  "app.menu.settings": "Ayarlar",
+
+  "app.about.detailed.info": "Detayli bilgi için BitBucket Readme dosyasını okuyabilirsiniz.",
+
+  "app.settings.title": "Ayarlar",
+  "app.settings.general": "Genel",
+  "app.settings.general.placeholder": "Dil",
+  "app.settings.general.language.en": "İngilizce",
+  "app.settings.general.language.tr": "Türkçe",
+  "app.settings.themes": "Temalar",
+  "app.settings.themes.placeholder": "Renk Temaları",
+  "app.settings.themes.blue": "Mavi",
+  "app.settings.themes.light": "Açık",
+  "app.settings.themes.nature": "Doğal",
+  "app.settings.themes.dark": "Karanlık",
+  "app.settings.themes.night-mode": "Otomatik Gece Modu (21:00- 7:00)",
+  "app.settings.animations": "Animasyonlar",
+  "app.settings.animations.page": "Tüm sayfa navigasyonları",
+  "app.settings.animations.elements": "Eleman navigasyonları"
+}
