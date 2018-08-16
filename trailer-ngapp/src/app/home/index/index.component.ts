@@ -44,6 +44,8 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   onSearchChange(query: string) {
-    this.store.dispatch(new ActionIndexRetrieve({ query }));
+    if (query) {
+      this.store.dispatch(new ActionIndexRetrieve({ query }));
+    }
   }
 }

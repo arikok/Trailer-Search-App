@@ -33,7 +33,7 @@ export type IndexActions =
   | ActionIndexRetrieveError;
 
 export const initialState: IndexState = {
-  query: 'GOOGLE',
+  query: '',
   loading: false
 };
 
@@ -83,7 +83,7 @@ export interface TrailerSearchResult {
 
 export interface TrailerSearchResultItem {
   Title: string;
-  YoutubeVideoID: string;
+  YoutubeVideoId: string;
   ChannelTitle: string;
   ChannelId: string;
   ThumbnailUrl: string;

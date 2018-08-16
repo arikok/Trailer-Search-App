@@ -11,11 +11,16 @@ import { StaticModule } from './static';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { YoutubePlayerModule } from 'ngx-youtube-player';
+
+
 @NgModule({
   imports: [
     // angular
     BrowserAnimationsModule,
     BrowserModule,
+
+    YoutubePlayerModule,
 
     // core & shared
     CoreModule,
@@ -26,7 +31,8 @@ import { AppComponent } from './app.component';
     SettingsModule,
 
     // app
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
   declarations: [AppComponent],
   providers: [],

@@ -19,29 +19,67 @@ export class TrailerComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
 
   initialized;
+  reframed;
   videoDetails;
-  videoId;
-  videoTitle;
-  channelTitle;
+  YoutubeVideoId;
+  Title;
+  ChannelTitle;
   player;
-  
+
   constructor(public store: Store<any>, private route: ActivatedRoute) { }
+
+  init() {
+
+   /* window['reframe']  = function reframe(target, cName) {
+      var frames = typeof target === 'string' ? document.querySelectorAll(target) : target;
+      var c = cName || 'js-reframe';
+      if (!('length' in frames)) frames = [frames];
+      for (var i = 0; i < frames.length; i += 1) {
+        var frame = frames[i];
+        var hasClass = frame.className.split(' ').indexOf(c) !== -1;
+        if (hasClass) return;
+        var hAttr = frame.getAttribute('height');
+        var wAttr = frame.getAttribute('width');
+        if (wAttr.indexOf('%') > -1 || frame.style.width.indexOf('%') > -1) return;
+        var h = hAttr ? hAttr : frame.offsetHeight;
+        var w = wAttr ? wAttr : frame.offsetWidth;
+        var padding = h / w * 100;
+        var div = document.createElement('div');
+        div.className = c;
+        var divStyles = div.style;
+        divStyles.position = 'relative';
+        divStyles.width = '100%';
+        divStyles.paddingTop = padding + '%';
+        var frameStyle = frame.style;
+        frameStyle.position = 'absolute';
+        frameStyle.width = '100%';
+        frameStyle.height = '100%';
+        frameStyle.left = '0';
+        frameStyle.top = '0';
+        frame.parentNode.insertBefore(div, frame);
+        frame.parentNode.removeChild(frame);
+        div.appendChild(frame);
+      }
+    }*/
+
+
+  }
 
   ngOnInit() {
     this.initialized = false;
+    this.reframed = false;
+    console.log("init false");
     this.route.params.subscribe(params => {
-      this.videoId = params['id']; 
-      // In a real app: dispatch action to load the details here.
-
-      window['onYouTubeIframeAPIReady'] = (e) => {
-        this.player = new window['YT'].Player('player', {
-          videoId: this.videoId
-        });
-      };
-
+      console.log("paramss");
+      this.init();
+      this.YoutubeVideoId = params['YoutubeVideoId'];
+      console.log("YoutubeVideoId" + this.YoutubeVideoId);
+      
+      this.initialized = true;
+      console.log("true");
+      
 
     });
-
 
     /*this.store
       .select(selectorTrailerResults)
@@ -58,12 +96,16 @@ export class TrailerComponent implements OnInit, OnDestroy {
       });*/
   }
 
+  savePlayer(player) {
+    this.player = player;
+    console.log('player instance', player)
+    this.player.playVideo();
+    
+  }
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
 
-  /*onSearchChange(query: string) {
-    this.store.dispatch(new ActionIndexRetrieve({ query }));
-  }*/
 }

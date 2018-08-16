@@ -24,7 +24,7 @@ const routes: Routes = [
         data: { title: 'app.examples.menu.stocks' }
       },
       {
-        path: 'trailer/:id',
+        path: 'trailer/:YoutubeVideoId',
         component: TrailerComponent,
         data: { title: 'app.examples.menu.stocks' }
       },

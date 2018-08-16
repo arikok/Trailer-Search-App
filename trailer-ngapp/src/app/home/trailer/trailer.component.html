@@ -1,8 +1,18 @@
-<div class="container">
+<div class="container mt20">
   <div class="row">
     <mat-spinner *ngIf="loading"></mat-spinner>
-    <div class="col-md-4" id="player">
-    </div>  
+    <div class="col-md-8">    
+      <div class="card">
+        <youtube-player [videoId]="YoutubeVideoId" [height]="450" [width]="800"></youtube-player>
+        <div class="card-body">
+          <h5 class="card-header">The Angel Original Netflix</h5>
+          
+          <span class="viewCount">1.545.105 Views</span>
+          <div><span class="likeCount">12321 Like</span></div>
+          
+          <span class="channelTitle">Movie Trailer</span>
+        </div>
+      </div>
+    </div>
   </div>
-  asdasd
 </div>

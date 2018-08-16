@@ -26,6 +26,10 @@ namespace trailer.Controllers
         [HttpPost]
         public YoutubeAPIModel Search([FromBody] YoutubeAPIModel input)
         {
+            if (input == null || input.Query == null)
+            {
+                return Home(null);
+            }
             string query = input.Query;
             if (!query.Contains("trailer"))
             {
