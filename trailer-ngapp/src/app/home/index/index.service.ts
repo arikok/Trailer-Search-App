@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { TrailerSearchResult } from './index.reducer';
 
-const PROXY_URL = 'http://localhost:49238/youtube/search';
+const PROXY_URL = 'http://ec2-54-93-231-71.eu-central-1.compute.amazonaws.com:49238/youtube/search';
 
 @Injectable()
 export class IndexService {
