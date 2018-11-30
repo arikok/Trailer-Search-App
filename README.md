@@ -3,12 +3,15 @@
 Trailer Zone - Trailer Search Engine - Aug 2018
 .NET Web API 2 and Angular 6 Project
 
+![](51QFy3L8Gb.gif)
+
+
 - Goals 
   - Create a search and viewer application for movie trailers using movie dbs and video services 
   - Caching mechanism for performance
   - Seperate backend and frontend projects
   - Nice and user-friendly front-end
-
+  
 - Details 
   - Backend .NET WebAPI 2 
      - .NET WebAPI 2 
