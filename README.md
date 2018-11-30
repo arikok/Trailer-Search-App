@@ -40,7 +40,8 @@ Installation :
 
 	Dependencies : 
 		
-		- This project contains two sub project, one for .net other one for angular. These project must be started seperately.
+		- This project contains two sub project, one for .net other one for angular. 
+			These project must be started seperately.
 			-trailer : .NET WebAPI 2 Project
 			-trailer-ngapp : Angular Project
 	
@@ -61,7 +62,8 @@ Installation :
 		
 ToDo:
 
--Create GetDetailByYoutubeVideoId service for getting video details like description,title,channel title. After this share button urls can be replaced with ours.
+-Create GetDetailByYoutubeVideoId service for getting video details like description,title,channel title. 
+	After this share button urls can be replaced with ours.
 -Youtube embed mobile screen issue
 -Show related videos viewing page 
 -Move search bar to top of page
