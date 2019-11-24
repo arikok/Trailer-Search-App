@@ -138,7 +138,7 @@ describe('IndexComponent', () => {
           query,
           loading: false,
           result: {
-            
+
           }
         });
 

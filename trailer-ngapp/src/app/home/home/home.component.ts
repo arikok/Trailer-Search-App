@@ -16,7 +16,7 @@ import { selectorSettings, SettingsState } from '@app/settings';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject<void>();
-  
+
   constructor(
     private store: Store<any>,
     private router: Router,

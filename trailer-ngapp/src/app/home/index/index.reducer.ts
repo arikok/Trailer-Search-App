@@ -55,7 +55,7 @@ export function indexReducer(
 
     case IndexActionTypes.RETRIEVE_SUCCESS:
       let trailers = [];
-      if (action.payload.nextPageToken == '') {
+      if (action.payload.nextPageToken === '') {
         trailers = action.payload.result.trailers;
       } else {
         trailers = state.trailers.concat(action.payload.result.trailers);
@@ -85,7 +85,7 @@ export interface TrailerSearchResult {
   query: string;
   nextPageToken: string;
   hasNext: string;
-  trailers: TrailerSearchResultItem[]
+  trailers: TrailerSearchResultItem[];
 }
 
 export interface TrailerSearchResultItem {
